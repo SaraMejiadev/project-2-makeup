@@ -20,4 +20,20 @@ Get Brand Information Endpoint: /brands/{brand_id} HTTP Method: GET Description:
 
 Example JSON Product Data Here's an example of the information you can find in the JSON API for a makeup product:
 
-{ "_id": "65413333502a24272a33eec7", "brand": "Maia's Mineral Galaxy", "name": "Mineral Eye Brow Liner Charcoal Brown", "price": 0, "price_sign": "$", "currency": "USD", "image_link": "https://www.purpicks.com/wp-content/uploads/2018/06/Maia%E2%80%99s-Mineral-Galaxy-Mineral-Eye-Brow-Liner-Charcoal-Brown.jpg", "product_link": "https://www.purpicks.com/product/maias-mineral-galaxy-mineral-eye-brow-liner-charcoal-brown/", "website_link": "https://purpicks.com/", "description": "", "rating": null, "category": "pencil", "product_type": "eyebrow", "tag_list": [ "EWG Verified", "purpicks" ], "__v": 0 }
+    "id": 1045,
+    "brand": "colourpop",
+    "name": "No Filter Foundation",
+    "price": "12.0",
+    "price_sign": "$",
+    "currency": "CAD",
+    "image_link": "https://cdn.shopify.com/s/files/1/1338/0845/products/foundations-lineup_800x1200.jpg?v=1528927785",
+    "product_link": "https://colourpop.com/products/no-filter-matte-foundation",
+    "website_link": "https://colourpop.com/products/no-filter-matte-foundation",
+    "description": "Developed for the Selfie Age, our buildable full coverage, natural matte foundation delivers flawless looking skin from day-to-night. The oil-free, lightweight formula blends smoothly and is easily customizable to create the coverage you want. Build it up or sheer it out, it was developed with innovative soft-blurring pigments to deliver true color while looking and feeling natural. The lockable pump is easy to use and keeps your routine mess-free! As always, 100% cruelty-free and vegan.",
+    "rating": null,
+    "category": "liquid",
+    "product_type": "foundation",
+    "tag_list": [
+      "cruelty free",
+      "Vegan"
+    ],
