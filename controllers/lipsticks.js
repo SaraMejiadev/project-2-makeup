@@ -1,8 +1,8 @@
-import lipstick from "../models/lipstick.js";
+import Lipstick from "../models/lipstick.js";
 
 export const getLipsticks = async (req, res) => {
   try {
-    const lipsticks = await lipstick.find();
+    const lipsticks = await Lipstick.find();
     res.json(lipsticks);
   } catch (error) {
     console.error(error);
@@ -13,7 +13,7 @@ export const getLipsticks = async (req, res) => {
 export const getLipstick = async (req, res) => {
   try {
     const { id } = req.params;
-    const lipstick = await lipstick.findById(id);
+    const lipstick = await Lipstick.findById(id);
 
     if (lipstick) {
       return res.json(lipstick);
@@ -28,7 +28,7 @@ export const getLipstick = async (req, res) => {
 
 export const createLipstick = async (req, res) => {
   try {
-    const lipstick = new lipstick(req.body);
+    const lipstick = new Lipstick(req.body);
     await lipstick.save();
     res.status(201).json(lipstick);
   } catch (error) {
@@ -40,7 +40,7 @@ export const createLipstick = async (req, res) => {
 export const updateLipstick = async (req, res) => {
   try {
     const { id } = req.params;
-    const lipstick = await lipstick.findByIdAndUpdate(id, req.body);
+    const lipstick = await Lipstick.findByIdAndUpdate(id, req.body);
 
     res.status(201).json(lipstick);
   } catch (error) {
@@ -52,7 +52,7 @@ export const updateLipstick = async (req, res) => {
 export const deleteLipstick = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await lipstick.findByIdAndDelete(id);
+    const deleted = await Lipstick.findByIdAndDelete(id);
 
     if (deleted) {
       return res.status(200).send("lipstick deleted!");

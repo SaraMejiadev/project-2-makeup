@@ -1,8 +1,8 @@
-import mascara from "../models/mascara.js";
+import Mascara from "../models/mascara.js";
 
 export const getMascaras = async (req, res) => {
   try {
-    const mascaras = await mascara.find();
+    const mascaras = await Mascara.find();
     res.json(mascaras);
   } catch (error) {
     console.error(error);
@@ -13,7 +13,7 @@ export const getMascaras = async (req, res) => {
 export const getMascara = async (req, res) => {
   try {
     const { id } = req.params;
-    const mascara = await mascara.findById(id);
+    const mascara = await Mascara.findById(id);
 
     if (mascara) {
       return res.json(mascara);
@@ -28,7 +28,7 @@ export const getMascara = async (req, res) => {
 
 export const createMascara = async (req, res) => {
   try {
-    const mascara = new mascara(req.body);
+    const mascara = new Mascara(req.body);
     await mascara.save();
     res.status(201).json(mascara);
   } catch (error) {
@@ -40,7 +40,7 @@ export const createMascara = async (req, res) => {
 export const updateMascara = async (req, res) => {
   try {
     const { id } = req.params;
-    const mascara = await mascara.findByIdAndUpdate(id, req.body);
+    const mascara = await Mascara.findByIdAndUpdate(id, req.body);
 
     res.status(201).json(mascara);
   } catch (error) {
@@ -52,7 +52,7 @@ export const updateMascara = async (req, res) => {
 export const deleteMascara = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await mascara.findByIdAndDelete(id);
+    const deleted = await Mascara.findByIdAndDelete(id);
 
     if (deleted) {
       return res.status(200).send("mascara deleted!");

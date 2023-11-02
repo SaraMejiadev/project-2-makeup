@@ -1,5 +1,5 @@
 import db from "../db/connection.js";
-import Eyeshadow from "../models/eyeshow.js";
+import Eyeshadow from "../models/eyeshadow.js";
 import Foundation from "../models/foundation.js";
 import Lipstick from "../models/lipstick.js";
 import Mascara from "../models/mascara.js";
@@ -26,3 +26,14 @@ const insertData = async () => {
 };
 
 insertData();
+
+// 20231031112251
+// http://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyebrow
+
+// 20231031112637
+// http://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation
+
+// 20231031112637
+// http://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation
+
+

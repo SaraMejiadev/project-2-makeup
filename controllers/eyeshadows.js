@@ -1,8 +1,8 @@
-import eyeshadow from "../models/eyeshadow.js";
+import Eyeshadow from "../models/eyeshadow.js";
 
 export const getEyeshadows = async (req, res) => {
   try {
-    const eyeshadows = await eyeshadow.find();
+    const eyeshadows = await Eyeshadow.find();
     res.json(eyeshadows);
   } catch (error) {
     console.error(error);
@@ -13,13 +13,13 @@ export const getEyeshadows = async (req, res) => {
 export const getEyeshadow = async (req, res) => {
   try {
     const { id } = req.params;
-    const eyeshadow = await eyeshadow.findById(id);
+    const eyeshadow = await Eyeshadow.findById(id);
 
     if (eyeshadow) {
-      return res.json(eyeshadow);
+      return res.json(eyeshadow); 
     }
 
-    res.stats(404).json({ message: "eyeshadow not found!" });
+    res.status(404).json({ message: "eyeshadow not found!" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
@@ -28,7 +28,7 @@ export const getEyeshadow = async (req, res) => {
 
 export const createEyeshadow = async (req, res) => {
   try {
-    const eyeshadow = new eyeshadow(req.body);
+    const eyeshadow = new Eyeshadow(req.body);
     await eyeshadow.save();
     res.status(201).json(eyeshadow);
   } catch (error) {
@@ -40,7 +40,7 @@ export const createEyeshadow = async (req, res) => {
 export const updateEyeshadow = async (req, res) => {
   try {
     const { id } = req.params;
-    const eyeshadow = await eyeshadow.findByIdAndUpdate(id, req.body);
+    const eyeshadow = await Eyeshadow.findByIdAndUpdate(id, req.body);
 
     res.status(201).json(eyeshadow);
   } catch (error) {
@@ -52,7 +52,7 @@ export const updateEyeshadow = async (req, res) => {
 export const deleteEyeshadow = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await eyeshadow.findByIdAndDelete(id);
+    const deleted = await Eyeshadow.findByIdAndDelete(id);
 
     if (deleted) {
       return res.status(200).send("eyeshadow deleted!");

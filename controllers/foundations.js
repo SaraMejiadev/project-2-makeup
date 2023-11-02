@@ -1,8 +1,8 @@
-import foundation from "../models/foundation.js";
+import Foundation from "../models/foundation.js";
 
 export const getFoundations = async (req, res) => {
   try {
-    const foundations = await foundation.find();
+    const foundations = await Foundation.find();
     res.json(foundations);
   } catch (error) {
     console.error(error);
@@ -13,7 +13,7 @@ export const getFoundations = async (req, res) => {
 export const getFoundation = async (req, res) => {
   try {
     const { id } = req.params;
-    const foundation = await foundation.findById(id);
+    const foundation = await Foundation.findById(id);
 
     if (foundation) {
       return res.json(foundation);
@@ -28,7 +28,7 @@ export const getFoundation = async (req, res) => {
 
 export const createFoundation = async (req, res) => {
   try {
-    const foundation = new foundation(req.body);
+    const foundation = new Foundation(req.body);
     await foundation.save();
     res.status(201).json(foundation);
   } catch (error) {
@@ -40,7 +40,7 @@ export const createFoundation = async (req, res) => {
 export const updateFoundation = async (req, res) => {
   try {
     const { id } = req.params;
-    const foundation = await foundation.findByIdAndUpdate(id, req.body);
+    const foundation = await Foundation.findByIdAndUpdate(id, req.body);
 
     res.status(201).json(foundation);
   } catch (error) {
@@ -52,7 +52,7 @@ export const updateFoundation = async (req, res) => {
 export const deleteFoundation = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await foundation.findByIdAndDelete(id);
+    const deleted = await Foundation.findByIdAndDelete(id);
 
     if (deleted) {
       return res.status(200).send("foundation deleted!");
